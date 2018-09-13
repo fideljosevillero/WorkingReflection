@@ -2,18 +2,18 @@ package com.fideljose.model;
 
 public class Persona {
 
-	public String nombre = "Reflecion Java!!!";
-	private int edad;
+	private String nombre = "Reflecion Java!!!";
+	private String telefono;
 	private String email;
 	
 	public Persona() {
 		super();
 	}
 	
-	public Persona(String nombre, int edad, String email) {
+	public Persona(String nombre, String telefono, String email) {
 		super();
 		this.nombre = nombre;
-		this.edad = edad;
+		this.telefono = telefono;
 		this.email = email;
 	}
 	public String getNombre() {
@@ -22,12 +22,15 @@ public class Persona {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public int getEdad() {
-		return edad;
+	
+	public String getTelefono() {
+		return telefono;
 	}
-	public void setEdad(int edad) {
-		this.edad = edad;
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
+
 	public String getEmail() {
 		return email;
 	}

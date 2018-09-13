@@ -40,4 +40,17 @@ public class DataReflection {
 		}
 	}
 	
+	public static void getAllAttributeNameFromClass() {
+		try {
+			Class<?> c = Persona.class;
+			Field[] listField = c.getDeclaredFields();
+			for(Field f : listField) {
+					LOGGER.log(Level.INFO, "Attribute name => {0}", f.getName());
+			}
+		}catch(Exception er) {
+			LOGGER.log(Level.INFO, "Exception setValueFromRerflection {0}", er.getStackTrace());
+		}
+	}
+	
+	
 }
