@@ -26,12 +26,11 @@ public class Main {
 	
 	public static Persona builtObject(Map<String, String> data) {
 		data.forEach((k,v) -> {
-			String nameAttributeClass = v;
-			switch(v) {
-				case "nombre"	: DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear", p); break;
-				case "telefono" : DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear 2", p); break;
-				case "email" 	: DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear 3", p); break;
-				default			: DataReflection.setValueFromRerflection(nameAttributeClass, "valor por defecto", p); break; 
+			String nameAttributeClass = v.trim();
+			switch(nameAttributeClass) {
+				case "nombre"	: DataReflection.setValueFromRerflection(nameAttributeClass, "Nombre setteado", p); break;
+				case "telefono" : DataReflection.setValueFromRerflection(nameAttributeClass, "Telefono setteado", p); break;
+				case "email" 	: DataReflection.setValueFromRerflection(nameAttributeClass, "Email setteado", p); break;
 			}
 		});
 		return p;

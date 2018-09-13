@@ -5,8 +5,11 @@
 	Agregar a la lista solo los nombres de atributos de la clase de lo contratio arroja
 	'java.lang.Class.getDeclaredField'
 -->
-<comment>Here are some favorites</comment>
-<entry key="parameter1">nombre</entry>
+<entry key="parameter1">email</entry>
 <entry key="parameter2">telefono</entry>
-<entry key="parameter3">email</entry>
+<entry key="parameter3">nombre</entry>
+
+<!-- <entry key="parameter1">nombre</entry> -->
+<!-- <entry key="parameter2">telefono</entry> -->
+<!-- <entry key="parameter3">email</entry> -->
 </properties>
