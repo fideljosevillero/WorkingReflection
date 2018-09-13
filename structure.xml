@@ -1,15 +1,78 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
+<!DOCTYPE bancos[ 
+       <!ELEMENT bancos (banco)+>
+       <!ELEMENT banco (parametro1, parametro2, parametro3, parametro4)>
+       <!ATTLIST banco id ID #REQUIRED>
+       <!ELEMENT parametro1 (#PCDATA)>
+       <!ELEMENT parametro2 (#PCDATA)>
+       <!ELEMENT parametro3 (#PCDATA)>
+       <!ELEMENT parametro4 (#PCDATA)>
+]>
+
+<bancos>
+	<banco id="BBVA">
+		<parametro1>BBVA1111111</parametro1>
+		<parametro2>BBVA2222222</parametro2>
+		<parametro3>BBVA3333333</parametro3>
+		<parametro4>BBVA4444444</parametro4>
+	</banco>
+	<banco id="BANCOLOMBIA">
+		<parametro1>BanColombia1111111</parametro1>
+		<parametro2>BanColombia2222222</parametro2>
+		<parametro3>BanColombia3333333</parametro3>
+		<parametro4>BanColombia4444444</parametro4>
+	</banco>
+</bancos>
+<!-- <!DOCTYPE agenda[  -->
+<!--        <!ELEMENT agenda (persona)+> -->
+<!--        <!ELEMENT persona (nombre, tlf)> -->
+<!--        <!ATTLIST persona id ID #REQUIRED> -->
+<!--        <!ELEMENT nombre (#PCDATA)> -->
+<!--        <!ELEMENT tlf (#PCDATA)> -->
+<!-- ]> -->
+<!-- 7 PARAMETROS DE ENTRADA, PERO EL OBJETO DE SALIDA -->
+<!-- <agenda> -->
+<!--   <persona id="ricardo"> -->
+<!-- 	  <nombre>Ricardo Borriquero</nombre> -->
+<!-- 	  <tlf>951345678</tlf> -->
+<!--   </persona> -->
+
+<!--   <persona id="eva"> -->
+<!-- 	  <nombre>Eva Risto</nombre> -->
+<!-- 	  <tlf>955837659</tlf> -->
+<!--   </persona> -->
+<!-- </agenda> -->
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<!-- <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"> -->
+
+<!-- <properties> -->
 <!-- 
 	Agregar a la lista solo los nombres de atributos de la clase de lo contratio arroja
 	'java.lang.Class.getDeclaredField'
 -->
-<entry key="parameter1">email</entry>
-<entry key="parameter2">telefono</entry>
-<entry key="parameter3">nombre</entry>
-
 <!-- <entry key="parameter1">nombre</entry> -->
 <!-- <entry key="parameter2">telefono</entry> -->
-<!-- <entry key="parameter3">email</entry> -->
-</properties>
+<!-- <entry key="parameter3">email </entry> -->
+
+<!-- <entry key="parameter1">nombre</entry> -->
+
+<!-- <bancos> -->
+<!-- 	<banco name="ASD"> -->
+<!-- 		<entry key="parameter1">nombre</entry> -->
+<!-- 		<entry key="parameter2">telefono</entry> -->
+<!-- 		<entry key="parameter3">email </entry> -->   
+<!-- 	</banco> -->
+<!-- 	<banco name="QWE"> -->
+<!-- 		<entry key="parameter1">nombre</entry> -->
+<!-- 		<entry key="parameter2">telefono</entry> -->
+<!-- 		<entry key="parameter3">email </entry> -->
+<!-- 	</banco> -->
+<!-- 	<banco name="ZXC"> -->
+<!-- 		<entry key="parameter1">nombre</entry> -->
+<!-- 		<entry key="parameter2">vacio</entry> -->
+<!-- 		<entry key="parameter3">email </entry> -->
+<!-- 	</banco> -->
+<!-- </bancos> -->
+
+
+
+<!-- </properties> -->

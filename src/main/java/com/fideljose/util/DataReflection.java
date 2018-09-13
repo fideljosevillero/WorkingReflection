@@ -29,7 +29,9 @@ public class DataReflection {
 		}
 	}
 
-	public static void setValueFromRerflection(String fieldName, String valueField, Persona p) {
+	public static void setValueFromRerflection(boolean flag, String fieldName, String valueField, Persona p) {
+		if(flag) return;
+		
 		Class<?> c = Persona.class;
 		try {
 			Field field = c.getDeclaredField(fieldName);
