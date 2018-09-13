@@ -9,6 +9,10 @@ import com.fideljose.model.Persona;
 public class DataReflection {
 	
 	public static final Logger LOGGER = java.util.logging.Logger.getLogger("MockitoTestingClass");
+	
+	private DataReflection() {
+		super();
+	}
 
 	public static void getValueFromReflection() {
 		Persona p = new Persona();
@@ -24,16 +28,13 @@ public class DataReflection {
 			LOGGER.log(Level.INFO, "Exception getValueFromReflection {0}", e.getStackTrace());
 		}
 	}
-	
-	public static void setValueFromRerflection(String fieldName, String valueField) {
-		Persona p = new Persona();
+
+	public static void setValueFromRerflection(String fieldName, String valueField, Persona p) {
 		Class<?> c = Persona.class;
 		try {
 			Field field = c.getDeclaredField(fieldName);
 			field.setAccessible(true);
 			field.set(p, valueField);
-//			String valor = (String) field.get(p);
-			//LOGGER.log(Level.INFO, "el valor seteado es - {0}", valor);
 			System.out.println(fieldName + " => " + valueField);
 		} catch (Exception e) {
 			LOGGER.log(Level.INFO, "Exception setValueFromRerflection {0}", e.getStackTrace());

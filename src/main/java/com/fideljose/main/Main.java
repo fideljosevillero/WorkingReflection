@@ -28,10 +28,10 @@ public class Main {
 		data.forEach((k,v) -> {
 			String nameAttributeClass = v;
 			switch(v) {
-				case "nombre"	: DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear"); break;
-				case "telefono" : DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear 2"); break;
-				case "email" 	: DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear 3"); break;
-				default			: DataReflection.setValueFromRerflection(nameAttributeClass, "valor por defecto"); break; 
+				case "nombre"	: DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear", p); break;
+				case "telefono" : DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear 2", p); break;
+				case "email" 	: DataReflection.setValueFromRerflection(nameAttributeClass, "valor a settear 3", p); break;
+				default			: DataReflection.setValueFromRerflection(nameAttributeClass, "valor por defecto", p); break; 
 			}
 		});
 		return p;

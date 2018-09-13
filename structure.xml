@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
+<!-- 
+	Agregar a la lista solo los nombres de atributos de la clase de lo contratio arroja
+	'java.lang.Class.getDeclaredField'
+-->
 <comment>Here are some favorites</comment>
 <entry key="parameter1">nombre</entry>
 <entry key="parameter2">telefono</entry>

@@ -25,7 +25,7 @@ public class Util {
 	public static HashMap<String, String> readXML2() {
 		HashMap<String, String> map = new HashMap<String, String>();
 		try{
-			File file = new File("file2.xml");
+			File file = new File("structure.xml");
 			FileInputStream fileInput = new FileInputStream(file);
 			Properties properties = new Properties();
 			properties.loadFromXML(fileInput);
