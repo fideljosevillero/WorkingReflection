@@ -2,30 +2,18 @@ package com.fideljose.util;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.util.Locale;
 import java.util.Properties;
-import java.util.Set;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import java.util.ResourceBundle;
 
 public class Util {
 	
-	public static HashMap<String, String> readXML2() {
+	public static HashMap<String, String> readXML2(String nameFileToBanc) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		try{
-			File file = new File("structure.xml");
+			File file = new File(nameFileToBanc);
 			FileInputStream fileInput = new FileInputStream(file);
 			Properties properties = new Properties();
 			properties.loadFromXML(fileInput);
@@ -43,4 +31,13 @@ public class Util {
 		}
 		return map;
 	}
+	
+	public static void getDataFromPropertiesFile() {
+		Locale.setDefault(new Locale("es, ES"));//("es_CO"));
+		//ResourceBundle rb = ResourceBundle.getBundle("C:"+File.separator+"Users"+File.separator+"fivillero"+File.separator+"Documents"+File.separator+"workspace-sts-3.9.5.RELEASE"+File.separator+"WorkingXML"+File.separator+"parameters");
+		ResourceBundle rb = ResourceBundle.getBundle("parameters");
+		String value = rb.getString("email");
+		System.out.println("value from properties file " + value);
+	}
+	
 }

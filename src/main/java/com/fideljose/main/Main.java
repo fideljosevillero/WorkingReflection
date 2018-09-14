@@ -26,8 +26,21 @@ public class Main {
 	
 	public static final Logger LOGGER = java.util.logging.Logger.getLogger("MockitoTestingClass");
 	static Persona p = new Persona();
+	private static final String NODE_PARAM = "banco";
 	
-	public static void readXMLFile() {	
+	public static void main(String[] args) {
+		Util.getDataFromPropertiesFile();
+		
+		readXMLFile("BANCOLOMBIA");
+		//*** Recuperar data del xml
+		HashMap<String, String> structure = Util.readXML2("structure.xml");
+		builtObject(structure);
+		
+		DataReflection.getValueFromReflection();
+	}
+	
+	public static Map<String, String> readXMLFile(String parameterBancToSelect) {	
+		Map<String, String> map = new HashMap<String, String>();
 		try {	
 			File fXmlFile = new File("structure.xml");	
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();	
@@ -36,48 +49,31 @@ public class Main {
 						
 			//optional, but recommended	
 			//read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work	
-			doc.getDocumentElement().normalize();	
-		
-			System.out.println("Root element :" + doc.getDocumentElement().getNodeName());	
-						
-//			NodeList nList = doc.getElementsByTagName("staff");	 
-			NodeList nList = doc.getElementsByTagName("banco");	 
-						
-			System.out.println("----------------------------");	
-		
-			for (int temp = 0; temp < nList.getLength(); temp++) {	
-		
-				Node nNode = (Node) nList.item(temp);	
-							
-				System.out.println("\nCurrent Element :" + nNode.getNodeName());	
-							
-				if (nNode.getNodeType() == Node.ELEMENT_NODE) {	
-		
-					Element eElement = (Element) nNode;	
-		
-					System.out.println(eElement.getElementsByTagName("parametro1").item(0).getTextContent());	
-					System.out.println(eElement.getElementsByTagName("parametro2").item(0).getTextContent());	
-					System.out.println(eElement.getElementsByTagName("parametro3").item(0).getTextContent());	
-					System.out.println(eElement.getElementsByTagName("parametro4").item(0).getTextContent());	
-		
+			doc.getDocumentElement().normalize();
+			NodeList nList = doc.getElementsByTagName(NODE_PARAM);	 
+			for (int temp = 0; temp < nList.getLength(); temp++) {
+				Element el = (org.w3c.dom.Element) nList.item(temp);
+				String idElementFileXML = el.getAttribute("id");
+				System.out.println("========================= " + idElementFileXML);
+				if(!idElementFileXML.equals(parameterBancToSelect)) continue;
+				
+				Node nNode = nList.item(temp);
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+					Element eElement = (Element) nNode;
+					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro1").item(0).getTextContent());
+					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro2").item(0).getTextContent());
+					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro3").item(0).getTextContent());
+					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro4").item(0).getTextContent());
 				}	
 			}	
 		}catch(ParserConfigurationException er){	
-				
+			LOGGER.log(Level.INFO, "readXMLFile Exception ParserConfigurationException ", er);
 		}catch(SAXException ex){	
-				
+			LOGGER.log(Level.INFO, "readXMLFile Exception SAXException ", ex);
 		}catch(IOException e){	
-				
-		}	
-	}
-	
-	public static void main(String[] args) {
-		readXMLFile();
-		//*** Recuperar data del xml
-		HashMap<String, String> structure = Util.readXML2();
-		builtObject(structure);
-		
-		DataReflection.getValueFromReflection();
+			LOGGER.log(Level.INFO, "readXMLFile Exception IOException ", e);	
+		}
+		return map;
 	}
 	
 	public static Persona builtObject(Map<String, String> data) {
