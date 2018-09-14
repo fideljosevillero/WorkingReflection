@@ -33,14 +33,14 @@ public class Main {
 		
 		readXMLFile("BANCOLOMBIA");
 		//*** Recuperar data del xml
-		HashMap<String, String> structure = Util.readXML2("structure.xml");
+		HashMap<String, String> structure = (HashMap<String, String>) Util.readXMLPropertiesTags("structure.xml");
 		builtObject(structure);
 		
 		DataReflection.getValueFromReflection();
 	}
 	
 	public static Map<String, String> readXMLFile(String parameterBancToSelect) {	
-		Map<String, String> map = new HashMap<String, String>();
+		Map<String, String> map = new HashMap<>();
 		try {	
 			File fXmlFile = new File("structure.xml");	
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();	
@@ -54,7 +54,7 @@ public class Main {
 			for (int temp = 0; temp < nList.getLength(); temp++) {
 				Element el = (org.w3c.dom.Element) nList.item(temp);
 				String idElementFileXML = el.getAttribute("id");
-				System.out.println("========================= " + idElementFileXML);
+				LOGGER.log(Level.INFO, "======= idElementFileXML {0}", idElementFileXML);
 				if(!idElementFileXML.equals(parameterBancToSelect)) continue;
 				
 				Node nNode = nList.item(temp);
@@ -101,6 +101,4 @@ public class Main {
             }
         }
 	}
-	
-	
 }

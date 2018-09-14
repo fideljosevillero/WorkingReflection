@@ -37,7 +37,6 @@ public class DataReflection {
 			Field field = c.getDeclaredField(fieldName);
 			field.setAccessible(true);
 			field.set(p, valueField);
-			System.out.println(fieldName + " => " + valueField);
 		} catch (Exception e) {
 			LOGGER.log(Level.INFO, "Exception setValueFromRerflection {0}", e.getStackTrace());
 		}
