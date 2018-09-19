@@ -12,11 +12,11 @@ import java.util.logging.Logger;
 
 public class Util {
 	
+	private static final Logger LOGGER = java.util.logging.Logger.getLogger(Util.class.getName());
+	
 	private Util() {
 		throw new IllegalStateException("Utility class cannot be instantiated");
 	}
-
-	private static final Logger LOGGER = java.util.logging.Logger.getLogger(Util.class.getName());
 	
 	public static Map<String, String> readXMLPropertiesTags(String nameFileToBanc) {
 		HashMap<String, String> map = new HashMap<>();

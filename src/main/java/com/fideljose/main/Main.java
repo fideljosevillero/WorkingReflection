@@ -60,6 +60,7 @@ public class Main {
 				Node nNode = nList.item(temp);
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
+					
 					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro1").item(0).getTextContent());
 					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro2").item(0).getTextContent());
 					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro3").item(0).getTextContent());
@@ -76,8 +77,8 @@ public class Main {
 		return map;
 	}
 	
-	public static Persona builtObject(Map<String, String> data) {
-		data.forEach((k,v) -> {
+	public static Persona builtObject(Map<String, String> structureXmlFile) {
+		structureXmlFile.forEach((k,v) -> {
 			String nameAttributeClass = v.trim();
 			boolean flag = true;
 			switch(nameAttributeClass) {

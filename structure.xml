@@ -1,36 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<!-- <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"> -->
+<!-- <properties> -->
 <!-- 
 	Agregar a la lista solo los nombres de atributos de la clase de lo contratio arroja
 	'java.lang.Class.getDeclaredField'
 -->
-<entry key="parameter1">nombre</entry>
-<entry key="parameter2">telefono</entry>
-<entry key="parameter3">email </entry>
-</properties>
+<!-- <entry key="parameter3">email </entry> -->
+<!-- <entry key="parameter1">nombre</entry> -->
+<!-- <entry key="parameter2">telefono</entry> -->
+<!-- </properties> -->
 
-<!-- <!DOCTYPE bancos[  -->
-<!--        <!ELEMENT bancos (banco)+> -->
-<!--        <!ELEMENT banco (parametro1, parametro2, parametro3, parametro4)> -->
-<!--        <!ATTLIST banco id ID #REQUIRED> -->
-<!--        <!ELEMENT parametro1 (#PCDATA)> -->
-<!--        <!ELEMENT parametro2 (#PCDATA)> -->
-<!--        <!ELEMENT parametro3 (#PCDATA)> -->
-<!--        <!ELEMENT parametro4 (#PCDATA)> -->
-<!-- ]> -->
+<!DOCTYPE bancos[ 
+	<!ELEMENT bancos (banco)+>
+<!-- 	Parametros opcionales, el '*' al final indica que 'banco' puede tener 0 o muchos hijos -->
+	<!ELEMENT banco (parametro1 | parametro2 | parametro3 | parametro4)*>
+	
+<!-- 	Parametros obligatorios en el mismo orden en que se establece -->
+<!-- 	<!ELEMENT banco (parametro1, parametro2, parametro3, parametro4)> -->
 
-<!-- <bancos> -->
-<!-- 	<banco id="BBVA"> -->
-<!-- 		<parametro1>BBVA1111111</parametro1> -->
-<!-- 		<parametro2>BBVA2222222</parametro2> -->
-<!-- 		<parametro3>BBVA3333333</parametro3> -->
-<!-- 		<parametro4>BBVA4444444</parametro4> -->
-<!-- 	</banco> -->
-<!-- 	<banco id="BANCOLOMBIA"> -->
-<!-- 		<parametro1>BanColombia1111111</parametro1> -->
-<!-- 		<parametro2>BanColombia2222222</parametro2> -->
-<!-- 		<parametro3>BanColombia3333333</parametro3> -->
-<!-- 		<parametro4>BanColombia4444444</parametro4> -->
-<!-- 	</banco> -->
-<!-- </bancos> -->
+<!-- 	Parametros opcionales, pero obligados a estar en este orden -->
+<!-- 	<!ELEMENT banco (parametro1? parametro2? parametro3? parametro4?)> -->
+
+	<!ATTLIST banco id ID #REQUIRED>
+	<!ELEMENT parametro1 (#PCDATA)>
+	<!ELEMENT parametro2 (#PCDATA)>
+	<!ELEMENT parametro3 (#PCDATA)>
+	<!ELEMENT parametro4 (#PCDATA)>
+]> 
+
+<bancos>
+	<banco id="BBVA">
+		<parametro1>BBVA2222222</parametro1>
+		<parametro2>BBVA1111111</parametro2>
+		<parametro3>BBVA3333333</parametro3>
+		<parametro4>BBVA4444444</parametro4>
+	</banco>
+	<banco id="BANCOLOMBIA">
+		<parametro1>BanColombia1111111</parametro1>
+		<parametro2>BanColombia2222222</parametro2>
+		<parametro3>BanColombia3333333</parametro3>
+		<parametro4>BanColombia4444444</parametro4>
+	</banco>
+</bancos>
