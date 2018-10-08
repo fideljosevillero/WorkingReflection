@@ -25,21 +25,30 @@
 
 	<!ATTLIST banco id ID #REQUIRED>
 	<!ELEMENT parametro1 (#PCDATA)>
-		<!ATTLIST parametro1 suma CDATA #REQUIRED>
+		<!ATTLIST parametro1 suma (credit|debit|ignorar) #IMPLIED>
 	<!ELEMENT parametro2 (#PCDATA)>
+		<!ATTLIST parametro2 suma (credit|debit|ignorar) #IMPLIED>
 	<!ELEMENT parametro3 (#PCDATA)>
+		<!ATTLIST parametro3 suma (credit|debit|ignorar) #IMPLIED>
 	<!ELEMENT parametro4 (#PCDATA)>
+		<!ATTLIST parametro4 suma (credit|debit|ignorar) #IMPLIED>
 ]> 
 
 <bancos>
-	<banco id="BBVA">
-		<parametro1 suma="tyty-1">BBVA2222222</parametro1>
+	<banco id="BBVA"> 
+		<parametro1 suma="credit">BBVA2222222</parametro1>
 		<parametro2>BBVA1111111</parametro2>
 		<parametro3>BBVA3333333</parametro3>
-		<parametro4>BBVA4444444</parametro4>
+		<parametro4 suma="debit">BBVA4444444</parametro4>
 	</banco>
 	<banco id="BANCOLOMBIA">
-		<parametro1 suma="tyty-2">BanColombia1111111</parametro1>
+		<parametro1 suma="ignorar">BanColombia1111111</parametro1>
+		<parametro2>BanColombia2222222</parametro2>
+		<parametro3>BanColombia3333333</parametro3>
+		<parametro4>BanColombia4444444</parametro4>
+	</banco>
+	<banco id="OTRO_BANCO">
+		<parametro1 suma="ignorar">BanColombia1111111</parametro1>
 		<parametro2>BanColombia2222222</parametro2>
 		<parametro3>BanColombia3333333</parametro3>
 		<parametro4>BanColombia4444444</parametro4>
