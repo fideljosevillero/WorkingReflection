@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.management.Attribute;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -61,6 +62,14 @@ public class Main {
 				if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 					Element eElement = (Element) nNode;
 					
+//					eElement.getAttribute("");
+					NodeList nl = eElement.getElementsByTagName("parametro1");
+					Element e2 = (Element) nl.item(0);
+					String value = e2.getAttribute("suma");
+					System.out.println("value => " + value);
+					System.out.println("?????????????????????? " + eElement.getAttribute("BANCOLOMBIA"));
+					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro1").item(0).getTextContent());
+					//***************
 					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro1").item(0).getTextContent());
 					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro2").item(0).getTextContent());
 					LOGGER.log(Level.INFO, eElement.getElementsByTagName("parametro3").item(0).getTextContent());

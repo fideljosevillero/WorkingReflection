@@ -10,6 +10,8 @@
 <!-- <entry key="parameter2">telefono</entry> -->
 <!-- </properties> -->
 
+
+<!-- https://www.quackit.com/xml/tutorial/dtd_element_operators.cfm -->
 <!DOCTYPE bancos[ 
 	<!ELEMENT bancos (banco)+>
 <!-- 	Parametros opcionales, el '*' al final indica que 'banco' puede tener 0 o muchos hijos -->
@@ -23,6 +25,7 @@
 
 	<!ATTLIST banco id ID #REQUIRED>
 	<!ELEMENT parametro1 (#PCDATA)>
+		<!ATTLIST parametro1 suma CDATA #REQUIRED>
 	<!ELEMENT parametro2 (#PCDATA)>
 	<!ELEMENT parametro3 (#PCDATA)>
 	<!ELEMENT parametro4 (#PCDATA)>
@@ -30,13 +33,13 @@
 
 <bancos>
 	<banco id="BBVA">
-		<parametro1>BBVA2222222</parametro1>
+		<parametro1 suma="tyty-1">BBVA2222222</parametro1>
 		<parametro2>BBVA1111111</parametro2>
 		<parametro3>BBVA3333333</parametro3>
 		<parametro4>BBVA4444444</parametro4>
 	</banco>
 	<banco id="BANCOLOMBIA">
-		<parametro1>BanColombia1111111</parametro1>
+		<parametro1 suma="tyty-2">BanColombia1111111</parametro1>
 		<parametro2>BanColombia2222222</parametro2>
 		<parametro3>BanColombia3333333</parametro3>
 		<parametro4>BanColombia4444444</parametro4>
